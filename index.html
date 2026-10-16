@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>George Mihaly | Executive Producer, Emmy Award Winner</title>
+<meta name="description" content="George Mihaly is an Emmy Award-winning executive producer and technical director who builds production teams and systems for film, live, and event work at CBS Sports, Meta, and the NFL.">
+<meta property="og:title" content="George Mihaly | Executive Producer">
+<meta property="og:description" content="I build the production behind ambitious creative.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.georgemihaly.com">
+<meta property="og:image" content="https://www.georgemihaly.com/images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="George Mihaly, Executive Producer and Emmy winner">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.georgemihaly.com">
+<link rel="preconnect" href="https://player.vimeo.com">
+<style>
+:root{
+  --paper:#f5f6f3;
+  --ink:#16222b;
+  --muted:#5b6770;
+  --line:#d9ddd8;
+  --accent:#1f6f8b;
+  --accent-ink:#ffffff;
+  --max:1180px;
+  --pad:clamp(20px,5vw,56px);
+}
+@media (prefers-color-scheme:dark){
+  :root{--paper:#10181e;--ink:#eef1ee;--muted:#9aa6ad;--line:#26333c;--accent:#6bb7d1;--accent-ink:#10181e}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:400 18px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+
+header.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+header.top .name{font-weight:700;text-decoration:none;letter-spacing:-.01em}
+nav a{margin-left:26px;text-decoration:none;color:var(--muted);font-size:16px}
+nav a:hover{color:var(--ink)}
+
+.hero{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(28px,5vw,72px);align-items:end;padding:clamp(40px,8vw,104px) 0 clamp(48px,7vw,88px)}
+.hero h1{font-size:clamp(44px,8.2vw,108px);line-height:.96;letter-spacing:-.045em;margin:0 0 28px;font-weight:800}
+.hero p{font-size:clamp(19px,2.2vw,24px);line-height:1.45;max-width:30ch;margin:0 0 32px;color:var(--muted)}
+.hero p strong{color:var(--ink);font-weight:600}
+.hero .portrait{aspect-ratio:4/5;background:var(--line);border-radius:4px;overflow:hidden}
+.hero .portrait img{width:100%;height:100%;object-fit:cover}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);padding:14px 26px;border-radius:999px;text-decoration:none;font-weight:600;font-size:16px}
+.btn:hover{filter:brightness(1.08)}
+
+section{padding:clamp(48px,7vw,96px) 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(30px,4vw,48px);letter-spacing:-.03em;line-height:1.05;margin:0 0 40px;font-weight:800}
+
+.work{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(32px,4vw,56px) clamp(20px,3vw,40px)}
+.work article:first-child{grid-column:1/-1}
+.player{position:relative;aspect-ratio:16/9;background:var(--ink);border-radius:4px;overflow:hidden}
+.player button{all:unset;cursor:pointer;position:absolute;inset:0;display:block;
+  background-size:cover;background-position:center}
+.player button::after{content:"";position:absolute;left:50%;top:50%;width:57px;height:57px;margin:-28.5px 0 0 -28.5px;
+  border-radius:50%;background:rgba(0,0,0,.5) 
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M9 6.5v11l9-5.5z'/%3E%3C/svg%3E") center/33px no-repeat;
+  transition:transform .15s}
+.player button:hover::after{transform:scale(1.08)}
+.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.work h3{font-size:24px;letter-spacing:-.02em;margin:18px 0 6px;font-weight:700}
+.work .client{color:var(--accent);font-weight:600;font-size:16px;margin:0 0 8px}
+.work p.desc{margin:0;color:var(--muted);font-size:17px;max-width:62ch}
+
+.about{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(28px,5vw,72px);align-items:start}
+.about .photo{aspect-ratio:1/1;background:var(--line);border-radius:4px;overflow:hidden}
+.about .photo img{width:100%;height:100%;object-fit:cover}
+.about p{margin:0 0 1.1em;max-width:62ch}
+
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,40px)}
+blockquote{margin:0;font-size:17px;line-height:1.55}
+blockquote footer{margin-top:14px;font-size:15px;color:var(--muted)}
+blockquote footer b{display:block;color:var(--ink)}
+
+.clients img{width:100%;max-width:900px;height:auto}
+@media (prefers-color-scheme:dark){.clients img{filter:invert(1)}}
+
+.contact{font-size:clamp(26px,4vw,48px);letter-spacing:-.03em;font-weight:800;line-height:1.15}
+.contact a{text-decoration-thickness:3px;text-underline-offset:6px;text-decoration-color:var(--accent)}
+.links{margin-top:28px;font-size:16px;color:var(--muted)}
+.links a{margin-right:22px}
+footer.site{padding:32px 0 56px;color:var(--muted);font-size:15px}
+
+@media (max-width:760px){
+  .hero,.about{grid-template-columns:1fr}
+  .hero .portrait{max-width:420px}
+  .work,.quotes{grid-template-columns:1fr}
+  nav a{margin-left:18px}
+}
+
+.cap{display:grid;grid-template-columns:repeat(2,1fr);gap:0 clamp(24px,4vw,56px)}
+.cap div{border-top:1px solid var(--line);padding:22px 0 30px}
+.cap h3{font-size:22px;letter-spacing:-.02em;margin:0 0 8px;font-weight:700}
+.cap p{margin:0;color:var(--muted);max-width:52ch}
+.work article.small h3{font-size:21px}
+.work article.small .desc{font-size:16px}
+@media (max-width:760px){.cap{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="name" href="/">George Mihaly</a>
+    <nav><a href="#work">Work</a><a href="#approach">Approach</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <h1>I build the production behind ambitious creative.</h1>
+        <p><strong>Executive producer and technical director.</strong> Emmy winner. I lead film, live, and event production for CBS Sports, Meta, and the NFL, and I build the teams and systems that make it repeatable.</p>
+        <a class="btn" href="#work">See the work</a>
+      </div>
+      <div class="portrait"><img src="images/george.webp" alt="George Mihaly" width="800" height="1000" fetchpriority="high"></div>
+    </div>
+
+    <section id="work">
+      <h2>Selected work</h2>
+      <div class="work">
+        <article>
+          <div class="player"><button type="button" data-vimeo="1122356987" style="background-image:url(images/thumb-super-bowl.webp)" aria-label="Play Super Bowl LV film"></button></div>
+          <h3>Super Bowl LV: Stand By Me</h3>
+          <p class="client">CBS Sports · 2021 Sports Emmy, Outstanding Opening/Tease</p>
+          <p class="desc">CBS wanted to open the Super Bowl with a film honoring essential workers, made under pandemic lockdown. I led technical direction and designed, built, and tele-operated the remote camera kits that made it possible. 96.4 million people watched it live.</p>
+        </article>
+
+        <article class="small">
+          <div class="player"><button type="button" data-vimeo="692353897" style="background-image:url(images/thumb-meta.webp)" aria-label="Play Meta news show"></button></div>
+          <h3>Meta news show</h3>
+          <p class="client">Meta Communications</p>
+          <p class="desc">An episodic show that explains new products to employees and the public. I built and tele-operated a custom studio for the host, and ran production end to end.</p>
+        </article>
+
+        <article class="small">
+          <div class="player"><button type="button" data-vimeo="1121316416" style="background-image:url(images/thumb-lucid.webp)" aria-label="Play Lucid Motors film"></button></div>
+          <h3>Lucid Air design origins</h3>
+          <p class="client">Lucid Motors · with Only Today</p>
+          <p class="desc">A film about where the Lucid Air came from, made before production began. I produced the California shoot.</p>
+        </article>
+
+        <article class="small">
+          <div class="player"><button type="button" data-vimeo="892716832" style="background-image:url(images/thumb-uninterrupted.webp)" aria-label="Play Uninterrupted film"></button></div>
+          <h3>Respect Your OGs</h3>
+          <p class="client">Uninterrupted</p>
+          <p class="desc">I produced Enes Kanter's film on how Jalen Rose inspired him to start a charter school in Oklahoma City.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="approach">
+      <h2>How I run production</h2>
+      <div class="cap">
+        <div><h3>Protect the idea</h3><p>I turn a brief into a plan that holds up against time, budget, and reality, and I push back early when a brief isn't ready.</p></div>
+        <div><h3>Build the system</h3><p>I set how work gets prioritized, staffed, approved, reviewed, and delivered, so great work is repeatable instead of heroic.</p></div>
+        <div><h3>Staff for the work</h3><p>I crew teams around the world. I know when to bring in the best director, studio, or freelancer, and when to build the capability in-house.</p></div>
+        <div><h3>Say what's true</h3><p>Creative leaders and partners get the real state of the work: decisions, trade-offs, and risks, before they become surprises.</p></div>
+        <div><h3>Invent when needed</h3><p>When the usual tools can't do the job, I build new ones. For CBS Sports I built custom video technology that shipped on the biggest broadcast of the year.</p></div>
+        <div><h3>Own the live moment</h3><p>I've been technical director for live events and livestreams where there is no second take.</p></div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <div class="about">
+        <div class="photo"><img src="images/about.webp" alt="George Mihaly running a live production control desk" width="900" height="900" loading="lazy" decoding="async"></div>
+        <div>
+          <p>I'm an Emmy Award-winning producer who has spent my career where creative ambition meets hard constraints. I've crewed and led production teams across the globe for Fortune 500 companies, sports organizations, and media brands.</p>
+          <p>At Meta, I developed content and creative strategy for internal communications reaching 70,000 employees, trained teams in virtual production, and produced virtual and in-person events.</p>
+          <p>For CBS's Super Bowl LV, I led technical direction for remote production for the opening film, which won the 2021 Sports Emmy for Outstanding Opening/Tease.</p>
+          <p>I'm based in Portland, Oregon, and I'm outside whenever I can be, usually with my wife, our kids, and our dog.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Testimonials</h2>
+      <div class="quotes">
+        <blockquote>“George pulled through by providing equipment and technical know-how to create a video livestream interview out of nowhere, near instantaneously, onsite.”
+          <footer><b>Aaron Babst</b>Director, Product Technical Program Management, Meta</footer></blockquote>
+        <blockquote>“George and his team were punctual, incredibly flexible, and very thorough. They exceeded my expectations each and every time.”
+          <footer><b>Rosalba Martone</b>Director of Education, Perricone MD</footer></blockquote>
+        <blockquote>“A fantastic production company to work with. A streamlined service and a very professional end result, without much oversight.”
+          <footer><b>John Muse</b>VP of Sport, USA Climbing</footer></blockquote>
+      </div>
+    </section>
+
+    <section class="clients">
+      <h2>Clients &amp; Collaborators</h2>
+      <img src="images/clients.webp" alt="Logos of clients and collaborators: Meta, TEDx, CBS Sports, Google, One Medical, USA Climbing, Microsoft, Under Armour, Polartec, NWSL, team4tech, The Circuit Bouldering Gym, Perricone MD, T-Mobile and AWS Elemental" width="1521" height="694" loading="lazy" decoding="async">
+    </section>
+
+    <section id="contact">
+      <div class="contact">Contact 👋<br><a href="mailto:georgemihaly@gmail.com">georgemihaly@gmail.com</a></div>
+      <div class="links">
+        <a href="https://www.linkedin.com/in/georgemihaly/">LinkedIn</a>
+        <a href="https://www.instagram.com/georgemihaly/">Instagram</a>
+        <a href="https://www.youtube.com/georgemihaly">YouTube</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">© 2026 George Mihaly · Portland, Oregon</footer>
+</div>
+
+<script>
+// Vimeo loads only when a visitor clicks play, so the page stays light.
+document.querySelectorAll('.player button').forEach(function(b){
+  b.addEventListener('click',function(){
+    var id=b.dataset.vimeo;
+    var f=document.createElement('iframe');
+    f.src='https://player.vimeo.com/video/'+id+(id.indexOf('?')>-1?'&':'?')+'autoplay=1&dnt=1';
+    f.allow='autoplay; fullscreen; picture-in-picture';
+    f.allowFullscreen=true;
+    f.title=b.getAttribute('aria-label').replace('Play ','');
+    b.replaceWith(f);
+  });
+});
+</script>
+</body>
+</html>
