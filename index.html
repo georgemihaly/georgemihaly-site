@@ -89,8 +89,14 @@ blockquote footer{margin-top:14px;font-size:15px;color:var(--muted);display:flex
 blockquote footer img{width:56px;height:56px;border-radius:50%;flex:none;object-fit:cover}
 blockquote footer b{display:block;color:var(--ink)}
 
-.clients img{width:100%;max-width:900px;height:auto}
-@media (prefers-color-scheme:dark){.clients img{filter:invert(1)}}
+.marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.marquee-track{display:flex;width:max-content;animation:marquee 60s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee img{height:72px;width:auto;max-width:none;flex:none}
+@keyframes marquee{to{transform:translateX(-50%)}}
+@media (max-width:760px){.marquee img{height:54px}}
+@media (prefers-reduced-motion:reduce){.marquee{overflow-x:auto}.marquee-track{animation:none}.marquee img+img{display:none}}
+@media (prefers-color-scheme:dark){.marquee img{filter:invert(1)}}
 
 .contact{font-size:clamp(26px,4vw,48px);letter-spacing:-.03em;font-weight:800;line-height:1.15}
 .contact a{text-decoration-thickness:3px;text-underline-offset:6px;text-decoration-color:var(--accent)}
@@ -245,7 +251,12 @@ footer.site{padding:32px 0 56px;color:var(--muted);font-size:15px}
 
     <section class="clients">
       <h2>Clients &amp; Collaborators</h2>
-      <img src="images/clients.webp" alt="Logos of clients and collaborators: Meta, TEDx, CBS Sports, Google, One Medical, USA Climbing, Microsoft, Under Armour, Polartec, NWSL, team4tech, The Circuit Bouldering Gym, Perricone MD, T-Mobile and AWS Elemental" width="1521" height="694" loading="lazy" decoding="async">
+      <div class="marquee">
+        <div class="marquee-track">
+          <img src="images/clients-strip.webp" alt="Logos of clients and collaborators: Meta, TEDx, CBS Sports, Google, One Medical, USA Climbing, Microsoft, Under Armour, Polartec, NWSL, team4tech, The Circuit Bouldering Gym, Perricone MD, T-Mobile and AWS Elemental" width="4884" height="143" loading="lazy" decoding="async">
+          <img src="images/clients-strip.webp" alt="" aria-hidden="true" width="4884" height="143" loading="lazy" decoding="async">
+        </div>
+      </div>
     </section>
 
     <section id="contact">
