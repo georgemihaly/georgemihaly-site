@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Podcast Portfolio | George Mihaly</title>
+<meta name="description" content="Podcasts hosted and produced by George Mihaly, Emmy Award-winning creative producer: The George Mihaly Show, Finding Mastery with Pete Carroll, and Facebook Friends.">
+<meta property="og:title" content="Podcast Portfolio | George Mihaly">
+<meta property="og:description" content="Interview series and live podcast productions hosted and produced by George Mihaly.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.georgemihaly.com/podcast/">
+<meta property="og:image" content="https://www.georgemihaly.com/images/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.georgemihaly.com/podcast/">
+<link rel="preconnect" href="https://open.spotify.com">
+<style>
+:root{
+  --paper:#f5f6f3;
+  --ink:#16222b;
+  --muted:#5b6770;
+  --line:#d9ddd8;
+  --accent:#1f6f8b;
+  --accent-ink:#ffffff;
+  --max:1180px;
+  --pad:clamp(20px,5vw,56px);
+}
+@media (prefers-color-scheme:dark){
+  :root{--paper:#10181e;--ink:#eef1ee;--muted:#9aa6ad;--line:#26333c;--accent:#6bb7d1;--accent-ink:#10181e}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:400 18px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+
+header.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0;
+  position:sticky;top:0;z-index:10;background:var(--paper);
+  box-shadow:0 0 0 100vmax var(--paper);clip-path:inset(0 -100vmax)}
+header.top .name{font-weight:700;text-decoration:none;letter-spacing:-.01em}
+nav a{margin-left:26px;text-decoration:none;color:var(--muted);font-size:16px}
+nav a:hover{color:var(--ink)}
+
+section{padding:clamp(48px,7vw,88px) 0;border-top:1px solid var(--line)}
+section:first-child{border-top:0}
+h1{font-size:clamp(40px,4.6vw,64px);line-height:.96;letter-spacing:-.045em;margin:0 0 24px;font-weight:800}
+h2{font-size:clamp(30px,4vw,48px);letter-spacing:-.03em;line-height:1.05;margin:0 0 14px;font-weight:800}
+.format{color:var(--accent);font-weight:600;font-size:16px;margin:0 0 14px}
+p.desc{margin:0 0 1em;color:var(--muted);font-size:18px;max-width:64ch}
+.lead{margin-bottom:clamp(28px,4vw,44px)}
+
+.episodes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.episodes iframe{width:100%;height:152px;border:0;border-radius:12px;display:block}
+
+.feature{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px,4vw,56px);align-items:start;margin-top:clamp(28px,4vw,44px)}
+.feature .listen{margin:0 0 14px;font-weight:600;font-size:16px}
+.feature .listen a{text-decoration-color:var(--accent);text-underline-offset:4px}
+.feature iframe.spotify{width:100%;height:152px;border:0;border-radius:12px;display:block}
+
+.videos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,3vw,36px) clamp(20px,3vw,32px)}
+.videos h3{font-size:17px;letter-spacing:-.01em;margin:12px 0 0;font-weight:600}
+
+.player{position:relative;aspect-ratio:16/9;background:var(--ink);border-radius:4px;overflow:hidden}
+.player button{all:unset;cursor:pointer;position:absolute;inset:0;display:block;
+  background-size:cover;background-position:center}
+.player button::after{content:"";position:absolute;left:50%;top:50%;width:57px;height:57px;margin:-28.5px 0 0 -28.5px;
+  border-radius:50%;background:rgba(0,0,0,.5)
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M9 6.5v11l9-5.5z'/%3E%3C/svg%3E") center/33px no-repeat;
+  transition:transform .15s}
+.player button:hover::after{transform:scale(1.08)}
+.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+footer.site{padding:32px 0 56px;color:var(--muted);font-size:15px;border-top:1px solid var(--line)}
+
+@media (max-width:900px){.videos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){
+  .episodes,.feature,.videos{grid-template-columns:minmax(0,1fr)}
+  nav a{margin-left:18px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="name" href="/">George Mihaly</a>
+    <nav><a href="/#work">Work</a><a href="/#about">About</a><a href="/#contact">Contact</a></nav>
+  </header>
+
+  <main>
+    <section>
+      <p class="format">Original podcast · Host &amp; producer</p>
+      <h1>The George Mihaly Show</h1>
+      <div class="lead">
+        <p class="desc">13 Conversations from my original interview series that I hosted, produced and livestreamed in 2019 and 2020. Watch or listen to the episodes below, or open each conversation on Spotify.</p>
+        <p class="desc">700+ views and listens per episode on average across Spotify, Apple Podcasts, Facebook and YouTube.</p>
+      </div>
+      <div class="episodes">
+        <iframe src="https://open.spotify.com/embed/episode/7e0jbUYlTE8CulXqIugKju?utm_source=generator" title="#13 – Craig Flood: Wedding Videographer and Filmmaker" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        <iframe src="https://open.spotify.com/embed/episode/7jO0Kuhdt9qnnDT0kPCnnS?utm_source=generator" title="#4 – Jonathan Mead: Fitness Coach &amp; Online Entrepreneur" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        <iframe src="https://open.spotify.com/embed/episode/3VEFtJoKCjHQZPaOJg2wAK?utm_source=generator" title="#3 – Ray Tsang: 3-Time Emmy Award Winning Filmmaker" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        <iframe src="https://open.spotify.com/embed/episode/0Ohu4rJbZwZO4FEyonUfLf?utm_source=generator" title="#2 – Chloe Mandell: Event Planner who worked the 2016 Olympic Games" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        <iframe src="https://open.spotify.com/embed/episode/49nUpVsmWiiSnFW7RvDENC?utm_source=generator" title="#1 – Greg Bander: Champion Muay Thai Fighter &amp; Teacher" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        <iframe src="https://open.spotify.com/embed/episode/1tl3mpSbgfUcF8yNhk5DqM?utm_source=generator" title="#12 – Colleen Kuhn, RD: Nutrition Translator, Dietitian and Health Coach" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        <iframe src="https://open.spotify.com/embed/episode/3kljBranMKdpRGHGa2dbx2?utm_source=generator" title="#11 – Rich Crowder: Professional Photographer, Photographic Editor at Patagonia" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        <iframe src="https://open.spotify.com/embed/episode/1bp8xuVhiz5XKx5nSRjOS6?utm_source=generator" title="#10 – Niko Pal: Parkour Teacher" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        <iframe src="https://open.spotify.com/embed/episode/60Dtf86UFB7RYWLDFObUFX?utm_source=generator" title="#9 – Dr. Lee Poe: Naturopathic Doctor" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        <iframe src="https://open.spotify.com/embed/episode/5qOPAa7jwPpeZ9ajN8OkSb?utm_source=generator" title="#8 – Kate Crosman: Finding Sobriety Through Yoga" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        <iframe src="https://open.spotify.com/embed/episode/5mh1YryqT2r4poEbnu5A1t?utm_source=generator" title="#7 – Doug Neill: Verbal To Visual, Sketchnote Teacher" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        <iframe src="https://open.spotify.com/embed/episode/24WepbqNwRWOmEF68qUQ3y?utm_source=generator" title="#6 – Michelle Jones: College Founder of Wayfinding Academy" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        <iframe src="https://open.spotify.com/embed/episode/2nQVKszi9nHZ1ZNuGtUFGw?utm_source=generator" title="#5 – Oliver Asis: Civil Engineer and Photographer" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      </div>
+    </section>
+
+    <section>
+      <h2>Finding Mastery</h2>
+      <p class="format">Live Production</p>
+      <p class="desc">George Mihaly produced a Finding Mastery Podcast conversation between Dr. Michael Gervais and Pete Carroll, Seattle Seahawks head coach, to a an in-person audience of 150. The event was livestream broadcast across the Facebook Channels of Seattle Seahawks, NFL, and Dr. Michael Gervais.</p>
+      <div class="feature">
+        <div class="player"><button type="button" data-youtube="oWGzJznWJgo" style="background-image:url(/images/thumb-podcast-finding-mastery.webp)" aria-label="Play Finding Mastery live with Dr. Michael Gervais and Pete Carroll"></button></div>
+        <div>
+          <p class="listen"><a href="https://open.spotify.com/episode/5qCOYaKYttZQ5ARwCFEjDQ">Watch or listen on Spotify ↗</a></p>
+          <iframe class="spotify" src="https://open.spotify.com/embed/episode/5qCOYaKYttZQ5ARwCFEjDQ?utm_source=generator" title="Pete Carroll on The Art of Coaching (Live)" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Facebook Friends</h2>
+      <p class="format">Remote Production</p>
+      <p class="desc lead">At Facebook and as part of an internal communications production team, George Mihaly helped produce a 17 episode conversation series for Facebook employees. Production was done by George Mihaly tele-operating remote camera kits.</p>
+      <div class="videos">
+        <article>
+          <div class="player"><button type="button" data-vimeo="657201568" style="background-image:url(/images/thumb-podcast-ff17.webp)" aria-label="Play Facebook Friends #17"></button></div>
+          <h3>#17 Kristen Johnson + Annie Tsang</h3>
+        </article>
+        <article>
+          <div class="player"><button type="button" data-vimeo="616576150" style="background-image:url(/images/thumb-podcast-ff16.webp)" aria-label="Play Facebook Friends #16"></button></div>
+          <h3>#16 Felix Navarro + Annie Tsang</h3>
+        </article>
+        <article>
+          <div class="player"><button type="button" data-vimeo="657201355" style="background-image:url(/images/thumb-podcast-ff15.webp)" aria-label="Play Facebook Friends #15"></button></div>
+          <h3>#15 Erin Kettwig + Annie Tsang</h3>
+        </article>
+        <article>
+          <div class="player"><button type="button" data-vimeo="657201153" style="background-image:url(/images/thumb-podcast-ff14.webp)" aria-label="Play Facebook Friends #14"></button></div>
+          <h3>#14 Matt King + Annie Tsang</h3>
+        </article>
+        <article>
+          <div class="player"><button type="button" data-vimeo="574681420" style="background-image:url(/images/thumb-podcast-ff13.webp)" aria-label="Play Facebook Friends #13"></button></div>
+          <h3>#13 Zvika Krieger + Annie Tsang</h3>
+        </article>
+        <article>
+          <div class="player"><button type="button" data-vimeo="644082852" style="background-image:url(/images/thumb-podcast-ff07.webp)" aria-label="Play Facebook Friends #07"></button></div>
+          <h3>#07 Ramya Ramaswami + Dakota Alston</h3>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">© 2026 George Mihaly · Portland, Oregon · <a href="mailto:georgemihaly@gmail.com">georgemihaly@gmail.com</a></footer>
+</div>
+
+<script>
+// Video players load only when a visitor clicks play, so the page stays light.
+document.querySelectorAll('.player button').forEach(function(b){
+  b.addEventListener('click',function(){
+    var f=document.createElement('iframe');
+    if(b.dataset.youtube){
+      f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.youtube+'?autoplay=1';
+    }else{
+      var id=b.dataset.vimeo;
+      f.src='https://player.vimeo.com/video/'+id+(id.indexOf('?')>-1?'&':'?')+'autoplay=1&dnt=1';
+    }
+    f.allow='autoplay; fullscreen; picture-in-picture';
+    f.allowFullscreen=true;
+    f.title=b.getAttribute('aria-label').replace('Play ','');
+    b.replaceWith(f);
+  });
+});
+</script>
+</body>
+</html>
