@@ -103,6 +103,7 @@ blockquote footer b{display:block;color:var(--ink)}
 .links{margin-top:28px;font-size:16px;color:var(--muted)}
 .links a{margin-right:22px}
 footer.site{padding:32px 0 56px;color:var(--muted);font-size:15px}
+.pdx{margin-top:4px;font-variant-numeric:tabular-nums}
 
 @media (max-width:760px){
   .hero,.about{grid-template-columns:1fr}
@@ -269,7 +270,7 @@ footer.site{padding:32px 0 56px;color:var(--muted);font-size:15px}
     </section>
   </main>
 
-  <footer class="site">© 2026 George Mihaly · Portland, Oregon</footer>
+  <footer class="site">© 2026 George Mihaly · Portland, Oregon<div class="pdx" id="pdx" aria-live="off"></div></footer>
 </div>
 
 <script>
@@ -285,6 +286,24 @@ document.querySelectorAll('.player button').forEach(function(b){
     b.replaceWith(f);
   });
 });
+// Live Portland time, plus current temperature from Open-Meteo (fetched after load, never blocks the page).
+(function(){
+  var el=document.getElementById('pdx');if(!el)return;
+  var fmt=new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',weekday:'long',month:'short',day:'numeric',hour:'numeric',minute:'2-digit',second:'2-digit'});
+  var temp='';
+  function tick(){
+    var p={};fmt.formatToParts(new Date()).forEach(function(x){p[x.type]=x.value});
+    el.textContent=p.weekday+', '+p.month+' '+p.day+', '+p.hour+':'+p.minute+':'+p.second+' '+p.dayPeriod+' · Portland'+temp;
+  }
+  tick();setInterval(tick,1000);
+  function weather(){
+    fetch('https://api.open-meteo.com/v1/forecast?latitude=45.52&longitude=-122.68&current=temperature_2m&temperature_unit=fahrenheit')
+      .then(function(r){return r.json()})
+      .then(function(d){var t=d&&d.current&&d.current.temperature_2m;if(typeof t==='number'){temp=' '+Math.round(t)+'°F';tick();}})
+      .catch(function(){});
+  }
+  if(document.readyState==='complete')weather();else window.addEventListener('load',weather);
+})();
 </script>
 </body>
 </html>
