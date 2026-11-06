@@ -157,7 +157,7 @@ footer.site{padding:32px 0 56px;color:var(--muted);font-size:15px}
         </article>
 
         <article class="small">
-          <div class="player"><button type="button" data-vimeo="1121316416" style="background-image:url(images/thumb-lucid.webp?v=2)" aria-label="Play Lucid Motors film"></button></div>
+          <div class="player"><button type="button" data-vimeo="1121316416" data-ratio="426/178" style="background-image:url(images/thumb-lucid.webp?v=2)" aria-label="Play Lucid Motors film"></button></div>
           <h3>Lucid Air</h3>
           <p class="client">Lucid Motors</p>
           <p class="desc">I field produced the film about Lucid Motors' first all-electric car, the Lucid Air.</p>
@@ -280,6 +280,7 @@ footer.site{padding:32px 0 56px;color:var(--muted);font-size:15px}
 document.querySelectorAll('.player button').forEach(function(b){
   b.addEventListener('click',function(){
     var id=b.dataset.vimeo;
+    if(b.dataset.ratio)b.parentNode.style.aspectRatio=b.dataset.ratio;
     var f=document.createElement('iframe');
     f.src='https://player.vimeo.com/video/'+id+(id.indexOf('?')>-1?'&':'?')+'autoplay=1&dnt=1';
     f.allow='autoplay; fullscreen; picture-in-picture';
