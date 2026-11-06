@@ -105,6 +105,22 @@ blockquote footer b{display:block;color:var(--ink)}
 .links a{margin-right:22px}
 footer.site{padding:32px 0 56px;color:var(--muted);font-size:15px}
 .pdx{margin-top:4px;font-variant-numeric:tabular-nums}
+/* Hardware Projects carousel */
+.hw h3{font-size:24px;letter-spacing:-.02em;margin:0 0 16px;font-weight:700}
+.carousel{position:relative}
+.carousel .track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;border-radius:4px;background:var(--line)}
+.carousel .track::-webkit-scrollbar{display:none}
+.carousel figure{flex:0 0 100%;margin:0;scroll-snap-align:start;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center}
+.carousel figure img{width:100%;height:100%;object-fit:contain}
+.carousel .nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border:0;border-radius:50%;
+  background:rgba(0,0,0,.55);color:#fff;font-size:22px;line-height:44px;text-align:center;cursor:pointer;padding:0}
+.carousel .nav:hover{background:rgba(0,0,0,.75)}
+.carousel .nav[disabled]{opacity:0;pointer-events:none}
+.carousel .prev{left:12px}.carousel .next{right:12px}
+.carousel-meta{display:flex;justify-content:space-between;gap:24px;margin-top:14px;color:var(--muted);font-size:17px}
+.carousel-meta .ccap{margin:0;max-width:62ch}
+.carousel-meta .ccap b{color:var(--ink)}
+.carousel-meta .count{flex:none;font-variant-numeric:tabular-nums}
 
 @media (max-width:760px){
   .hero,.about{grid-template-columns:1fr}
@@ -227,6 +243,27 @@ footer.site{padding:32px 0 56px;color:var(--muted);font-size:15px}
       </div>
     </section>
 
+    <section id="hardware" class="hw">
+      <h2>Hardware Projects</h2>
+      <h3>Remote Camera Kit</h3>
+      <div class="carousel" aria-roledescription="carousel" aria-label="Remote Camera Kit">
+        <div class="track" tabindex="0">
+          <figure data-cap="<b>Remote Camera Kits.</b> Typical camera setup is a Canon or Sony full-frame mirrorless camera, 24mm or 35mm lens, Rode Wireless GO II mic system, Rode VideoMic NTG shotgun mic, and Apple MacBook Air computer. Lighting equipment varies based on filming location."><img src="images/kit-1.webp" alt="Remote camera kit: mirrorless camera with teleprompter on a tabletop tripod, and a laptop setup with shotgun mic" decoding="async"></figure>
+          <figure data-cap="<b>Teleprompter.</b> The display can show script or presentation text, an image of another person to create direct eye contact for direct-to-camera interviews, or a combination of both. Teleprompter size is 5&#8221; or 8&#8221;, and it is remotely operated."><img src="images/kit-2.webp" alt="Remotely operated teleprompter mounted in front of the camera lens" loading="lazy" decoding="async"></figure>
+          <figure data-cap="<b>Screenshots from remote camera kit productions.</b>"><img src="images/kit-3.webp" alt="Kang-Xing Jin, Head of Health at Meta, filmed with a remote camera kit" loading="lazy" decoding="async"></figure>
+          <figure data-cap="<b>Screenshots from remote camera kit productions.</b>"><img src="images/kit-4.webp" alt="Dee Dee Becker, founder of the Virginia Tech Parents Facebook group, filmed with a remote camera kit" loading="lazy" decoding="async"></figure>
+          <figure data-cap="<b>Screenshots from remote camera kit productions.</b>"><img src="images/kit-5.webp" alt="Two interview subjects filmed with remote camera kits, shown side by side" loading="lazy" decoding="async"></figure>
+          <figure data-cap="<b>Screenshots from remote camera kit productions.</b>"><img src="images/kit-6.webp" alt="Interview subject filmed at home with a remote camera kit" loading="lazy" decoding="async"></figure>
+          <figure data-cap="<b>Screenshots from remote camera kit productions.</b>"><img src="images/kit-7.webp" alt="Stephanny Enriquez, Care Team Manager, filmed with a remote camera kit" loading="lazy" decoding="async"></figure>
+          <figure data-cap="<b>Screenshots from remote camera kit productions.</b>"><img src="images/kit-8.webp" alt="Charmaine Charmant, creator, filmed with a remote camera kit" loading="lazy" decoding="async"></figure>
+          <figure data-cap="<b>Screenshots from remote camera kit productions.</b>"><img src="images/kit-9.webp" alt="Host presenting Meta avatars, filmed with a remote camera kit" loading="lazy" decoding="async"></figure>
+        </div>
+        <button type="button" class="nav prev" aria-label="Previous slide">&#8249;</button>
+        <button type="button" class="nav next" aria-label="Next slide">&#8250;</button>
+      </div>
+      <div class="carousel-meta"><p class="ccap" aria-live="polite"></p><span class="count"></span></div>
+    </section>
+
     <section id="about">
       <h2>About</h2>
       <div class="about">
@@ -306,6 +343,27 @@ document.querySelectorAll('.player button').forEach(function(b){
   }
   if(document.readyState==='complete')weather();else window.addEventListener('load',weather);
 })();
+// Hardware Projects carousel: swipe/scroll, arrow buttons, keyboard, caption + counter.
+document.querySelectorAll('.carousel').forEach(function(c){
+  var track=c.querySelector('.track'),slides=track.children,prev=c.querySelector('.prev'),next=c.querySelector('.next');
+  var meta=c.nextElementSibling,cap=meta.querySelector(".ccap"),count=meta.querySelector('.count'),cur=-1;
+  function index(){return Math.round(track.scrollLeft/track.clientWidth)}
+  function show(i){
+    i=Math.max(0,Math.min(slides.length-1,i));if(i===cur)return;cur=i;
+    cap.innerHTML=slides[i].dataset.cap;count.textContent=(i+1)+' / '+slides.length;
+    prev.disabled=i===0;next.disabled=i===slides.length-1;
+  }
+  function update(){show(index())}
+  // Arrows step from the current slide (not the mid-animation scroll position).
+  function go(d){var i=Math.max(0,Math.min(slides.length-1,cur+d));show(i);track.scrollTo({left:i*track.clientWidth})}
+  prev.addEventListener('click',function(){go(-1)});
+  next.addEventListener('click',function(){go(1)});
+  track.addEventListener('keydown',function(e){if(e.key==='ArrowLeft'){e.preventDefault();go(-1)}if(e.key==='ArrowRight'){e.preventDefault();go(1)}});
+  // Swipes: sync the caption once scrolling settles.
+  var t;track.addEventListener('scroll',function(){clearTimeout(t);t=setTimeout(update,120)},{passive:true});
+  window.addEventListener('resize',function(){track.scrollTo({left:cur*track.clientWidth,behavior:'instant'})});
+  update();
+});
 </script>
 </body>
 </html>
