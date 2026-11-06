@@ -115,7 +115,6 @@ footer.site{padding:32px 0 56px;color:var(--muted);font-size:15px}
 .carousel .nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border:0;border-radius:50%;
   background:rgba(0,0,0,.55);color:#fff;font-size:22px;line-height:44px;text-align:center;cursor:pointer;padding:0}
 .carousel .nav:hover{background:rgba(0,0,0,.75)}
-.carousel .nav[disabled]{opacity:0;pointer-events:none}
 .carousel .prev{left:12px}.carousel .next{right:12px}
 .carousel-meta{display:flex;justify-content:space-between;gap:24px;margin-top:14px;color:var(--muted);font-size:17px}
 .carousel-meta .ccap{margin:0;max-width:none}
@@ -351,11 +350,11 @@ document.querySelectorAll('.carousel').forEach(function(c){
   function show(i){
     i=Math.max(0,Math.min(slides.length-1,i));if(i===cur)return;cur=i;
     cap.innerHTML=slides[i].dataset.cap;count.textContent=(i+1)+' / '+slides.length;
-    prev.disabled=i===0;next.disabled=i===slides.length-1;
   }
   function update(){show(index())}
   // Arrows step from the current slide (not the mid-animation scroll position).
-  function go(d){var i=Math.max(0,Math.min(slides.length-1,cur+d));show(i);track.scrollTo({left:i*track.clientWidth})}
+  // Wraps around: next on the last slide goes to the first, and back on the first goes to the last.
+  function go(d){var n=slides.length,i=((cur+d)%n+n)%n;show(i);track.scrollTo({left:i*track.clientWidth})}
   prev.addEventListener('click',function(){go(-1)});
   next.addEventListener('click',function(){go(1)});
   track.addEventListener('keydown',function(e){if(e.key==='ArrowLeft'){e.preventDefault();go(-1)}if(e.key==='ArrowRight'){e.preventDefault();go(1)}});
