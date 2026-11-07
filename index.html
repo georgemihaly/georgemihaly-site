@@ -83,6 +83,15 @@ h2{font-size:clamp(30px,4vw,48px);letter-spacing:-.03em;line-height:1.05;margin:
 .about .photo{aspect-ratio:1/1;background:var(--line);border-radius:4px;overflow:hidden}
 .about .photo img{width:100%;height:100%;object-fit:cover}
 .about p{margin:0 0 1.1em;max-width:62ch}
+/* About: team photo grid */
+.teams{margin-top:clamp(40px,6vw,64px)}
+.teams h3{font-size:24px;letter-spacing:-.02em;margin:0 0 16px;font-weight:700}
+.teams .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(16px,2.5vw,28px)}
+.teams figure{margin:0}
+.teams .ph{aspect-ratio:4/3;background:var(--line);border-radius:4px;overflow:hidden}
+.teams img{width:100%;height:100%;object-fit:cover}
+.teams figcaption{margin-top:10px;color:var(--muted);font-size:16px}
+@media (max-width:760px){.teams .grid{grid-template-columns:1fr}}
 
 .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,40px)}
 blockquote{margin:0;font-size:17px;line-height:1.55}
@@ -272,6 +281,15 @@ footer.site{padding:32px 0 56px;color:var(--muted);font-size:15px}
           <p>At Meta, I developed internal communications content regularly reaching 70,000 employees, trained teams in virtual production, and produced virtual and in-person events.</p>
           <p>For CBS's Super Bowl LV, I led technical direction for remote production of the opening film, which won the 2021 Sports Emmy for Outstanding Opening/Tease.</p>
           <p>I live in Portland, Oregon with my wife, children, and family dog.</p>
+        </div>
+      </div>
+      <div class="teams">
+        <h3>The Teams</h3>
+        <div class="grid">
+          <figure><div class="ph"><img src="images/team-climbing.webp" alt="Production crew posing in front of a climbing wall with cameras and audio gear" loading="lazy" decoding="async"></div><figcaption>USA Climbing Collegiate Nationals livestream crew</figcaption></figure>
+          <figure><div class="ph"><img src="images/team-finding-mastery.webp" alt="Event team posing in front of a Finding Mastery backdrop" loading="lazy" decoding="async"></div><figcaption>Finding Mastery live event team</figcaption></figure>
+          <figure><div class="ph"><img src="images/team-boulder-rally.webp" alt="Broadcast team posing behind a table of microphones in front of a Portland Boulder Rally sponsor wall" loading="lazy" decoding="async"></div><figcaption>Portland Boulder Rally broadcast team</figcaption></figure>
+          <figure><div class="ph"><img src="images/team-studio.webp" alt="Production team striking playful poses in a bright studio with brick walls" loading="lazy" decoding="async"></div><figcaption>On set with the production team</figcaption></figure>
         </div>
       </div>
     </section>
