@@ -27,9 +27,9 @@
   --max:1180px;
   --pad:clamp(20px,5vw,56px);
 }
-@media (prefers-color-scheme:dark){
-  :root{--paper:#10181e;--ink:#eef1ee;--muted:#9aa6ad;--line:#26333c;--accent:#6bb7d1;--accent-ink:#10181e}
-}
+/* Light by default; the nav toggle sets data-theme="dark" on <html>. */
+:root{color-scheme:light}
+:root[data-theme="dark"]{color-scheme:dark;--paper:#10181e;--ink:#eef1ee;--muted:#9aa6ad;--line:#26333c;--accent:#6bb7d1;--accent-ink:#10181e}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
 @media (max-width:760px){html{scroll-padding-top:104px}}
@@ -49,6 +49,11 @@ header.top{display:flex;justify-content:space-between;align-items:center;padding
 header.top .name{font-weight:700;text-decoration:none;letter-spacing:-.01em}
 nav a{margin-left:26px;text-decoration:none;color:var(--muted);font-size:16px}
 nav a:hover{color:var(--ink)}
+nav{display:flex;align-items:center;flex-wrap:wrap}
+.theme-toggle{margin-left:26px;width:34px;height:34px;flex:none;padding:0;border:1px solid var(--line);border-radius:999px;
+  background:transparent;color:var(--muted);display:inline-grid;place-items:center;cursor:pointer}
+.theme-toggle:hover{color:var(--ink);border-color:var(--muted)}
+.theme-toggle svg{width:16px;height:16px}
 
 .hero{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(28px,5vw,72px);align-items:end;padding:clamp(40px,8vw,104px) 0 clamp(48px,7vw,88px)}
 .hero h1{font-size:clamp(40px,4.6vw,64px);line-height:.96;letter-spacing:-.045em;margin:0 0 28px;font-weight:800}
@@ -106,7 +111,7 @@ blockquote footer b{display:block;color:var(--ink)}
 @keyframes marquee{to{transform:translateX(-50%)}}
 @media (max-width:760px){.marquee img{height:54px}}
 @media (prefers-reduced-motion:reduce){.marquee{overflow-x:auto}.marquee-track{animation:none}.marquee img+img{display:none}}
-@media (prefers-color-scheme:dark){.marquee img{filter:invert(1)}}
+:root[data-theme="dark"] .marquee img{filter:invert(1)}
 
 .contact{font-size:clamp(26px,4vw,48px);letter-spacing:-.03em;font-weight:800;line-height:1.15}
 .contact a{text-decoration-thickness:3px;text-underline-offset:6px;text-decoration-color:var(--accent)}
@@ -134,7 +139,7 @@ footer.site{padding:32px 0 56px;color:var(--muted);font-size:15px}
   .hero,.about{grid-template-columns:1fr}
   .hero .portrait{max-width:420px}
   .work,.quotes{grid-template-columns:1fr}
-  nav a{margin-left:18px}
+  nav a,.theme-toggle{margin-left:18px}
 }
 
 .cap{display:grid;grid-template-columns:repeat(2,1fr);gap:0 clamp(24px,4vw,56px)}
@@ -678,12 +683,16 @@ footer.site{padding:32px 0 56px;color:var(--muted);font-size:15px}
  ]
 }
 </script>
+<script>
+// Apply a saved dark-mode choice before the page paints, so there's no flash of light mode.
+try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}
+</script>
 </head>
 <body>
 <div class="wrap">
   <header class="top">
     <a class="name" href="/">George Mihaly</a>
-    <nav><a href="#work">Work</a><a href="#services">Services</a><a href="#hardware">Hardware</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+    <nav><a href="#work">Work</a><a href="#services">Services</a><a href="#hardware">Hardware</a><a href="#about">About</a><a href="#contact">Contact</a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 0 0 13z" fill="currentColor"/></svg></button></nav>
   </header>
 
   <main>
@@ -871,7 +880,7 @@ footer.site{padding:32px 0 56px;color:var(--muted);font-size:15px}
     </section>
 
     <section id="contact">
-      <div class="contact">Contact 👋<br><a href="mailto:georgemihaly@gmail.com">georgemihaly@gmail.com</a></div>
+      <div class="contact">Contact 👋<br>Email me <a href="mailto:georgemihaly@gmail.com">georgemihaly@gmail.com</a></div>
       <div class="links">
         <a href="https://www.linkedin.com/in/georgemihaly/">LinkedIn</a>
         <a href="https://www.instagram.com/georgemihaly/">Instagram</a>
@@ -884,6 +893,18 @@ footer.site{padding:32px 0 56px;color:var(--muted);font-size:15px}
 </div>
 
 <script>
+// Light/dark toggle in the nav. Light is the default; a dark choice is remembered on this device.
+(function(){
+  var root=document.documentElement, btn=document.getElementById('theme-toggle');
+  function sync(){btn.setAttribute('aria-pressed',root.getAttribute('data-theme')==='dark'?'true':'false')}
+  sync();
+  btn.addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')!=='dark';
+    if(dark)root.setAttribute('data-theme','dark');else root.removeAttribute('data-theme');
+    try{localStorage.setItem('theme',dark?'dark':'light')}catch(e){}
+    sync();
+  });
+})();
 // Vimeo loads only when a visitor clicks play, so the page stays light.
 document.querySelectorAll('.player button').forEach(function(b){
   b.addEventListener('click',function(){
